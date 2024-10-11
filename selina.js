@@ -88,7 +88,7 @@ client.on('message', async msg => {
   else if (msg.body.startsWith('/tagall ')) {        
         if (chat.isGroup) {
             let mentions = [];
-            let text = msg.body.replace("/tagall ');
+            let text = msg.body.replace("/tagall ", "");
                                         
             for (let participant of chat.participants) {
                 const contact = await client.getContactById(participant.id._serialized);
@@ -101,7 +101,7 @@ client.on('message', async msg => {
         }
   }
   else if(msg.body.startsWith('/chat ') {
-      let a = msg.body.replace("/chat ");
+      let a = msg.body.replace("/chat ", "");
       let res = prompt(a);
   }
 });
