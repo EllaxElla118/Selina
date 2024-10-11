@@ -1,10 +1,7 @@
 const { Client } = require('whatsapp-web.js');
 
-const { createRequire } = require('module');
-const require = createRequire(import.meta.url);
-
 async function prompt(p) {
-  const OpenAI = await import("openai");
+  const OpenAI = await require("openai");
   const openai = new OpenAI();
   const completion = await openai.chat.completions.create({
     model: "gpt-4o-mini",
