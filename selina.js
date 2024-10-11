@@ -1,7 +1,7 @@
 const { Client } = require('whatsapp-web.js');
 
 async function prompt(p) {
-  const OpenAI = await require("openai");
+  const OpenAI = require("openai");
   const openai = new OpenAI();
   const completion = await openai.chat.completions.create({
     model: "gpt-4o-mini",
@@ -13,7 +13,7 @@ async function prompt(p) {
     ],
   });
 
-  return(completion.choices[0].message);
+  return completion.choices[0].message.content;
 };
 
 const client = new Client({
@@ -100,8 +100,9 @@ client.on('message', async msg => {
             msg.reply('This command can only be used in a group!');
         }
   }
-  else if(msg.body.startsWith('/chat ') {
+  else if(msg.body.startsWith('/chat ')) {
       let a = msg.body.replace("/chat ", "");
-      let res = prompt(a);
+      let res = await prompt(a);
+      await msg.reply(res);
   }
 });
