@@ -32,4 +32,4 @@ COPY . .
 EXPOSE 3000
 
 # Start the bot
-CMD ["yarn", "start"]
+CMD ["yarn", "dev"]
