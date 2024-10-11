@@ -29,7 +29,7 @@ RUN yarn install
 COPY . .
 
 # Expose the port that your WhatsApp bot will run on, if applicable
-EXPOSE 3000
+EXPOSE 4433
 
 # Start the bot
 CMD ["yarn", "dev"]
