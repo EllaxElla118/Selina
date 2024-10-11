@@ -59,4 +59,4 @@ COPY . .
 EXPOSE 4433
 
 # Start the bot
-CMD ["yarn", "dev"]
+CMD ["yarn", "start"]
