@@ -106,3 +106,20 @@ client.on('message', async msg => {
       await msg.reply(res);
   }
 });
+
+const https = require('https');
+const requestHandler = (req, res) => {
+  res.writeHead(200, {
+    'Content-Type': 'text/plain',
+    'Access-Control-Allow-Origin': '*',              // Allow any origin (CORS)
+    'Access-Control-Allow-Headers': 'Content-Type',  // Allow specific headers
+    'Access-Control-Allow-Methods': 'GET, POST, OPTIONS' // Allow HTTP methods
+  });
+  res.end('Hello, HTTPS with Headers!\n');
+};
+
+const server = https.createServer({}, requestHandler);
+const PORT = 4433;
+server.listen(PORT, () => {
+  console.log(`Server running on ${PORT}`);
+});
