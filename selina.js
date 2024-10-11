@@ -1,5 +1,24 @@
 const { Client } = require('whatsapp-web.js');
 
+const { createRequire } = require('module');
+const require = createRequire(import.meta.url);
+
+async function prompt(p) {
+  const OpenAI = await import("openai");
+  const openai = new OpenAI();
+  const completion = await openai.chat.completions.create({
+    model: "gpt-4o-mini",
+    messages: [
+        {
+            role: "user",
+            content: p,
+        },
+    ],
+  });
+
+  return(completion.choices[0].message);
+};
+
 const client = new Client({
                 webVersionCache: {
                     remotePath: 'https://raw.githubusercontent.com/wppconnect-team/wa-version/main/html/2.3000.1015364300-alpha.html',
@@ -59,5 +78,33 @@ client.on('message', async msg => {
       else {
             msg.reply("Don't use this command in a group.");
       }
+    } 
+    
+    else if (msg.body === '/exit') {
+        if (chat.isGroup) {
+            chat.leave();
+        } else {
+            msg.reply('This command can only be used in a group!');
+        }
     }
+
+  else if (msg.body.startsWith('/tagall ')) {        
+        if (chat.isGroup) {
+            let mentions = [];
+            let text = msg.body.replace("/tagall ');
+                                        
+            for (let participant of chat.participants) {
+                const contact = await client.getContactById(participant.id._serialized);
+                mentions.push(contact);
+            }
+            chat.sendMessage(text, { mentions });
+        }
+        else {
+            msg.reply('This command can only be used in a group!');
+        }
+  }
+  else if(msg.body.startsWith('/chat ') {
+      let a = msg.body.replace("/chat ");
+      let res = prompt(a);
+  }
 });
