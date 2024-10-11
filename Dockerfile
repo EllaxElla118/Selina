@@ -20,7 +20,7 @@ ENV PUPPETEER_SKIP_DOWNLOAD true
 ENV PUPPETEER_EXECUTABLE_PATH=/usr/bin/chromium-browser
 
 # Copy package.json and yarn.lock to the container
-COPY package.json yarn.lock ./
+COPY package.json ./
 
 # Install dependencies using Yarn
 RUN yarn install
