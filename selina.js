@@ -110,12 +110,25 @@ client.on('message', async msg => {
 const https = require('https');
 const requestHandler = (req, res) => {
   res.writeHead(200, {
-    'Content-Type': 'text/plain',
+    'Content-Type': 'text/html',
     'Access-Control-Allow-Origin': '*',              // Allow any origin (CORS)
     'Access-Control-Allow-Headers': 'Content-Type',  // Allow specific headers
     'Access-Control-Allow-Methods': 'GET, POST, OPTIONS' // Allow HTTP methods
   });
-  res.end('Hello, HTTPS with Headers!\n');
+  res.end(`
+    <!DOCTYPE html>
+    <html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Simple HTTPS Server</title>
+    </head>
+    <body>
+        <h1>Hello, HTTPS with HTML!</h1>
+        <p>This is a simple HTTPS server that returns an HTML response.</p>
+    </body>
+    </html>
+  `);
 };
 
 const server = https.createServer({}, requestHandler);
