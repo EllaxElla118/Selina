@@ -1,11 +1,35 @@
-FROM node:slim
+# Base image
+FROM node:18-alpine
 
-RUN npm install whatsapp-web.js
+# Set the working directory in the container
+WORKDIR /usr/src/app
 
-# Copy the rest of your application code
+# Install system dependencies required for whatsapp-web.js
+RUN apk add --no-cache \
+    chromium \
+    nss \
+    freetype \
+    harfbuzz \
+    ttf-freefont \
+    nodejs \
+    yarn \
+    bash
+
+# Set environment variable for Puppeteer to use Chromium from Alpine
+ENV PUPPETEER_SKIP_DOWNLOAD true
+ENV PUPPETEER_EXECUTABLE_PATH=/usr/bin/chromium-browser
+
+# Copy package.json and yarn.lock to the container
+COPY package.json yarn.lock ./
+
+# Install dependencies using Yarn
+RUN yarn install
+
+# Copy the rest of the project files to the container
 COPY . .
 
-EXPOSE 1234
+# Expose the port that your WhatsApp bot will run on, if applicable
+EXPOSE 3000
 
-# Start your application
-CMD ["node", "selina.js"]
+# Start the bot
+CMD ["yarn", "start"]
