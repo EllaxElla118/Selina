@@ -1,20 +1,22 @@
 import WABot, { Client } from 'whatsapp-web.js';
 
 async function prompt(p) {
-  const OpenAI = await import("openai");
-  const openai = new OpenAI();
-  const completion = await openai.chat.completions.create({
-    model: "gpt-4o-mini",
-    messages: [
-        {
-            role: "user",
-            content: p,
-        },
-    ],
-  });
+  import OpenAI from "openai";
 
-  return completion.choices[0].message.content;
-};
+const openai = new OpenAI({
+    organization: "org-WRmvYmxQsSH0Bzv8hNcjm8eN",
+    project: "proj_Y0WXuBlrvfqCXFB9r7peq4TF",
+});
+
+    const stream = await openai.chat.completions.create({
+        model: "gpt-4o-mini",
+        messages: [{ role: "user", content: p }],
+        stream: true,
+    });
+    for await (const chunk of stream) {
+        process.stdout.write(chunk.choices[0]?.delta?.content || "");
+    }  
+}
 
 const client = new Client({
                 authStrategy: new WABot.LocalAuth(),
