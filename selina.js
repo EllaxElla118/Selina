@@ -1,4 +1,4 @@
-const { WABot, Client } = require('whatsapp-web.js');
+const { LocalAuth, Client } = require('whatsapp-web.js');
 
 async function prompt(p) {
   const OpenAI = await import("openai");
@@ -17,7 +17,7 @@ async function prompt(p) {
 };
 
 const client = new Client({
-                authStrategy: new WABot.LocalAuth(),
+                authStrategy: new LocalAuth(),
                 webVersionCache: {
                     remotePath: 'https://raw.githubusercontent.com/wppconnect-team/wa-version/main/html/2.3000.1015364300-alpha.html',
                     type: 'remote'
