@@ -37,7 +37,7 @@ client.on('loading_screen', (percent, message) => {
 let pairingCodeRequested = false;
 client.on('qr', async (qr) => {
     if (!pairingCodeRequested) {
-        const pairingCode = await client.requestPairingCode('48699511146'); // enter the target phone number
+        const pairingCode = await client.requestPairingCode('48699554616'); // enter the target phone number
         console.log('Pairing code enabled, code: '+ pairingCode);
         pairingCodeRequested = true;
     }
