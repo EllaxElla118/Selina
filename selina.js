@@ -1,7 +1,7 @@
 import WABot, { Client } from 'whatsapp-web.js';
+import OpenAI from "openai";
 
 async function prompt(p) {
-  import OpenAI from "openai";
 
 const openai = new OpenAI({
     organization: "org-WRmvYmxQsSH0Bzv8hNcjm8eN",
