@@ -1,8 +1,8 @@
-const { Client } = require('whatsapp-web.js');
+const { Client, LocalAuth } = require('whatsapp-web.js');
 
 async function prompt(p) {
-  const OpenAI = require("openai");
-  const openai = new OpenAI();
+  const OpenAI = await import("openai");
+  const openai = new OpenAI.default(); // Use default if it's an ES module
   const completion = await openai.chat.completions.create({
     model: "gpt-4o-mini",
     messages: [
@@ -17,6 +17,7 @@ async function prompt(p) {
 };
 
 const client = new Client({
+                authStrategy: new LocalAuth(),
                 webVersionCache: {
                     remotePath: 'https://raw.githubusercontent.com/wppconnect-team/wa-version/main/html/2.3000.1015364300-alpha.html',
                     type: 'remote'
@@ -83,7 +84,7 @@ client.on('message', async msg => {
         }
     }
 
-  else if (msg.body.startsWith('/tagall ')) {        
+    else if (msg.body.startsWith('/tagall ')) {        
         if (chat.isGroup) {
             let mentions = [];
             let text = msg.body.replace("/tagall ", "");
@@ -97,12 +98,12 @@ client.on('message', async msg => {
         else {
             msg.reply('This command can only be used in a group!');
         }
-  }
-  else if(msg.body.startsWith('/chat ')) {
-      let a = msg.body.replace("/chat ", "");
-      let res = await prompt(a);
-      await msg.reply(res);
-  }
+    }
+    else if(msg.body.startsWith('/chat ')) {
+        let a = msg.body.replace("/chat ", "");
+        let res = await prompt(a);
+        await msg.reply(res);
+    }
 });
 
 const http = require('http');
@@ -133,3 +134,4 @@ const PORT = 4433;
 server.listen(PORT, () => {
   console.log(`Server is listening on port ${PORT}`);
 });
+                      
