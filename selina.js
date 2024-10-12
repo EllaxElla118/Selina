@@ -46,7 +46,7 @@ client.on('message', async msg => {
     
     if (msg.body.startsWith('/join ')) {
       if (!chat.isGroup) {
-          const inviteCode = msg.body.split(' ')[1];
+          const inviteCode = msg.body.split(' ')[1].replace("https://chat.whatsapp.com/", "");
           try {
             await client.acceptInvite(inviteCode);
             msg.reply('Joined the group!');
@@ -67,6 +67,10 @@ client.on('message', async msg => {
             msg.reply('This command can only be used in a group!');
         }
     }
+
+      else if(msg.body === '/status') {
+            msg.reply("I'm alive"):
+      }
 
     else if (msg.body.startsWith('/tagall ')) {        
         if (chat.isGroup) {
