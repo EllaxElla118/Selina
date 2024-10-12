@@ -69,7 +69,7 @@ client.on('message', async msg => {
     }
 
       else if(msg.body === '/status') {
-            msg.reply("I'm alive"):
+            msg.reply("I'm alive");
       }
 
     else if (msg.body.startsWith('/tagall ')) {        
