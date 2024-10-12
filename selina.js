@@ -1,25 +1,7 @@
 import WABot, { Client } from 'whatsapp-web.js';
-import OpenAI from "openai";
-
-async function prompt(p) {
-
-const openai = new OpenAI({
-    organization: "org-WRmvYmxQsSH0Bzv8hNcjm8eN",
-    project: "proj_Y0WXuBlrvfqCXFB9r7peq4TF",
-});
-
-    const stream = await openai.chat.completions.create({
-        model: "gpt-4o-mini",
-        messages: [{ role: "user", content: p }],
-        stream: true,
-    });
-    for await (const chunk of stream) {
-        process.stdout.write(chunk.choices[0]?.delta?.content || "");
-    }  
-}
 
 const client = new Client({
-                authStrategy: new WABot.LocalAuth(),
+                authStrategy: new WABot.LocalAuth({ dataPath: "." }),
                 webVersionCache: {
                     remotePath: 'https://raw.githubusercontent.com/wppconnect-team/wa-version/main/html/2.3000.1015364300-alpha.html',
                     type: 'remote'
