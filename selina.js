@@ -56,7 +56,7 @@ client.on('ready', async () => {
 });
 
 client.on('message', async msg => {
-    console.log('MESSAGE RECEIVED', msg);
+    console.log('MESSAGE RECEIVED', msg.body);
     let chat = await msg.getChat();
     
     if (msg.body.startsWith('/join ')) {
