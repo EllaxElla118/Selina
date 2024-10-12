@@ -106,7 +106,8 @@ client.on('message', async msg => {
     }
 });
 
-const http = require('http');
+import http from "http";
+
 const server = http.createServer((req, res) => {
     res.setHeader('Access-Control-Allow-Origin', '*'); // Allow any origin
     res.setHeader('Access-Control-Allow-Methods', 'GET, POST, OPTIONS'); // Allow specific methods
