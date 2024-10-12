@@ -2,7 +2,7 @@ const { Client, LocalAuth } = require('whatsapp-web.js');
 
 async function prompt(p) {
   const OpenAI = await import("openai");
-  const openai = new OpenAI.default(); // Use default if it's an ES module
+  const openai = new OpenAI() // Use default if it's an ES module
   const completion = await openai.chat.completions.create({
     model: "gpt-4o-mini",
     messages: [
