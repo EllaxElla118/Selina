@@ -1,4 +1,4 @@
-import { LocalAuth, Client } from 'whatsapp-web.js';
+const { LocalAuth, Client } = require('whatsapp-web.js');
 
 const client = new Client({
                 authStrategy: new LocalAuth({ clientId: "riley", dataPath: "./session" }),
@@ -95,7 +95,7 @@ client.on('message', async msg => {
     }
 });
 
-import http from "http";
+const http = require("http");
 
 const server = http.createServer((req, res) => {
     res.setHeader('Access-Control-Allow-Origin', '*'); // Allow any origin
