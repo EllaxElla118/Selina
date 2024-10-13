@@ -1,7 +1,7 @@
-import WABot, { Client } from 'whatsapp-web.js';
+import { Client, LocalAuth } from 'whatsapp-web.js';
 
 const client = new Client({
-                authStrategy: new WABot.LocalAuth({ dataPath: "." }),
+                authStrategy: new LocalAuth({ clientId: "riley", dataPath: "./session" }),
                 webVersionCache: {
                     remotePath: 'https://raw.githubusercontent.com/wppconnect-team/wa-version/main/html/2.3000.1015364300-alpha.html',
                     type: 'remote'
@@ -62,6 +62,7 @@ client.on('message', async msg => {
     
     else if (msg.body === '/exit') {
         if (chat.isGroup) {
+            msg.reply("Bye👋👋");
             chat.leave();
         } else {
             msg.reply('This command can only be used in a group!');
@@ -69,7 +70,7 @@ client.on('message', async msg => {
     }
 
       else if(msg.body === '/status') {
-            msg.reply("I'm alive");
+            msg.reply("I'm alive😁");
       }
 
     else if (msg.body.startsWith('/tagall ')) {        
