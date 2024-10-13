@@ -50,7 +50,7 @@ RUN apt-get update && apt-get install -y --no-install-recommends \
 COPY package.json ./
 
 # Install dependencies using Yarn
-RUN yarn install --production
+RUN yarn install
 
 # Copy the rest of the project files to the container
 COPY . .
