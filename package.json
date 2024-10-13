@@ -4,7 +4,7 @@
   "description": "A WhatsApp bot built using whatsapp-web.js",
   "main": "selina.js",
   "scripts": {
-    "start": "node selina.js",
+    "start": "node selina.js"
   },
   "author": "Ella",
   "license": "MIT",
