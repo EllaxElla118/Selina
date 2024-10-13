@@ -124,4 +124,11 @@ const PORT = 4433;
 server.listen(PORT, () => {
   console.log(`Server is listening on port ${PORT}`);
 });
-                      
+
+setInterval(() => {
+    http.get(`http://localhost:${PORT}`, (res) => {
+        console.log(`Keep-alive request sent, status code: ${res.statusCode}`);
+    }).on('error', (e) => {
+        console.error(`Problem with request: ${e.message}`);
+    });
+}, 5000);
