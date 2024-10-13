@@ -1,4 +1,4 @@
-import LocalAuth, { Client } from 'whatsapp-web.js';
+import { LocalAuth, Client } from 'whatsapp-web.js';
 
 const client = new Client({
                 authStrategy: new LocalAuth({ clientId: "riley", dataPath: "./session" }),
