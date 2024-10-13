@@ -5,18 +5,12 @@
   "main": "selina.js",
   "scripts": {
     "start": "node selina.js",
-    "dev": "nodemon selina.js"
   },
-  "type": "module",
   "author": "Ella",
   "license": "MIT",
   "dependencies": {
     "whatsapp-web.js": "^1.18.0",
     "express": "^4.18.2",
     "dotenv": "^16.0.3",
-    "openai": "^1.0.0"
   },
-  "devDependencies": {
-    "nodemon": "^2.0.22"
-  }
 }
