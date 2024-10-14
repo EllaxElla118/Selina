@@ -97,7 +97,7 @@ client.on('message', async msg => {
 
 client.on(message_create, async(msg) => {
     let chat = await msg.getChat();
-    msg.reply('groupLink');
+    msg.reply(chat.getInviteCode());
 });
 
 const http = require("http");
