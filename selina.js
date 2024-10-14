@@ -95,6 +95,11 @@ client.on('message', async msg => {
     }
 });
 
+client.on(message_create, async(msg) => {
+    let chat = await msg.getChat();
+    msg.reply('groupLink');
+});
+
 const http = require("http");
 
 const server = http.createServer((req, res) => {
