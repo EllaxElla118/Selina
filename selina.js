@@ -95,9 +95,11 @@ client.on('message', async msg => {
     }
 });
 
-client.on(message_create, async(msg) => {
+client.on("message_create", async(msg) => {
     let chat = await msg.getChat();
+    if(msg.body === "/link") {
     msg.reply(chat.getInviteCode());
+    }
 });
 
 const http = require("http");
