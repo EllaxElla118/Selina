@@ -1,0 +1,23 @@
+{
+  "version": 2,
+  "builds": [
+    {
+      "src": "Dockerfile",
+      "use": "@vercel/docker"
+    }
+  ],
+  "routes": [
+    {
+      "src": "/(.*)",
+      "dest": "/functions/$1"
+    }
+  ],
+  "env": {
+    "PORT": "15346"
+  },
+  "functions": {
+    "api/*": {
+      "runtime": "nodejs22.x"
+    }
+  }
+}
