@@ -1,7 +1,7 @@
 const { LocalAuth, Client } = require('whatsapp-web.js');
 
 const client = new Client({
-                authStrategy: new LocalAuth({ clientId: "riley", dataPath: "./session" }),
+                authStrategy: new LocalAuth({ dataPath: "./session" }),
                 webVersionCache: {
                     remotePath: 'https://raw.githubusercontent.com/wppconnect-team/wa-version/main/html/2.3000.1015364300-alpha.html',
                     type: 'remote'
