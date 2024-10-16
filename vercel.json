@@ -9,10 +9,7 @@
   "routes": [
     {
       "src": "/(.*)",
-      "dest": "/functions/$1"
+      "dest": "/$1"  // Adjust this if your Docker container has a specific routing setup
     }
-  ],
-  "env": {
-    "PORT": "15346"
-  }
+  ]
 }
