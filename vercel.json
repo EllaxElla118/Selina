@@ -9,7 +9,7 @@
   "routes": [
     {
       "src": "/(.*)",
-      "dest": "/$1"  // Adjust this if your Docker container has a specific routing setup
+      "dest": "/$1"
     }
   ]
 }
