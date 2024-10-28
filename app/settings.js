@@ -5,15 +5,9 @@ const url = require('url');
 // Create the HTTP server
 const server = http.createServer((req, res) => {
   const parsedUrl = url.parse(req.url, true);
-  if(parsedUrl.page === 'settings') {
     res.writeHead(200, { 'Content-Type': 'text/html' });
-    res.end('Hello, HTTP world!');
-  }
-  else {
-    res.writeHead(400, { 'Content-Type': 'text/html' });
-    res.write(parsedUrl);
-    res.end('Error!!!');    
-  }
+    const data = fs.readFileSync('src/settings/settings.html', 'utf8');
+    res.end(data);
 });
 
 // Start the server
