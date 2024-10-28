@@ -1,0 +1,46 @@
+body {  
+    padding: 20px;  
+    font-family: Mabry Pro, sans-serif;
+}
+
+.headline {
+    font-size: 20pt;
+    color: green;
+}
+
+.settingsContainer {
+    width: 80%;
+    display: grid;
+    grid-auto-flow: row;
+    border: 3px solid;
+    border-radius: 5px;
+    padding: 20px;
+}
+
+.settings_txt {
+    margin-left: 10px;
+    display: flex;
+    flex-direction: row;
+    gap: 20px;
+    align-items: center;
+    font-size: 15pt;
+}
+
+.txt_box {
+    padding: 10px;
+    resize: none;
+    box-sizing: border-box;
+    font-family: Mabry Pro, sans-serif;
+    font-size: 12pt;
+    border: 2px solid green;
+}
+
+.a2 {
+    background-color: white;
+    color: green;
+    font-size: 12pt;
+    border: 2px solid;
+    border-radius: 5px;
+    padding: 5px;
+    font-family: Mabry Pro, sans-serif;
+}
