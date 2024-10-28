@@ -1,0 +1,46 @@
+<html>
+
+<head>
+    <script src="settings.js"></script>
+    <link href="settings.css" rel="stylesheet" type="text/css">
+    <link href="w3css.css" rel="stylesheet" type="text/css">
+    <link href="../resources/fonts/stylesheet.css" rel="stylesheet" type="text/css">
+    <title>Settings</title>
+</head>
+
+<body>
+
+<p class="headline">Group Settings (Group ID: ${gID})</p>
+
+<div class="settingsContainer">
+
+    <div class="settings_txt">Welcome Message: 
+        <label class="switch">
+            <input checked type="checkbox">
+            <span class="slider round"></span>
+        </label>
+        <textarea id='wlcMsg' cols='40' rows='5' class="txt_box"></textarea>
+        <div>
+            <input type="file" accept="image/jpg, image/jpeg" id="fileInput" style="display: none;" />
+            <input title="Adds an image" onclick="openFilePicker()" class="a2" value="${image}" type='button' />
+            <input title="Adds the new member number" onclick="addTag('{number}', 'wlcMsg')" class="a2" value="${number}" type='button' />
+            <input title="Adds the new member's pushname" onclick="addTag('{name}', 'wlcMsg')" class="a2" value="${name}" type='button' />
+        </div>
+    </div>
+
+    <p class="settings_txt">Group exit Message: <label class="switch">
+  <input checked type="checkbox">
+  <span class="slider round"></span>
+</label><textarea cols='40' rows='5' class="txt_box"></textarea></p>
+
+    <p class="settings_txt">Antilink: <label class="switch">
+  <input checked type="checkbox">
+  <span class="slider round"></span>
+</label></p>
+
+<p><i>>>> Remember to make the bot admin for it to work</i></p>
+</div>
+
+</body>
+
+</html>
