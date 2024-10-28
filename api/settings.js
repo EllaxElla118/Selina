@@ -6,7 +6,8 @@ const url = require('url');
 const server = http.createServer((req, res) => {
   const parsedUrl = url.parse(req.url, true);
     res.writeHead(200, { 'Content-Type': 'text/html' });
-    const data = fs.readFileSync('../app/src/settings/settings.html', 'utf8');
+    const filePath = path.join(__dirname, '../app/src/settings/settings.html');
+    const data = fs.readFileSync(filePath, 'utf8');
     console.log(data);
     res.end(data);
 });
