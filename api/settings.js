@@ -14,30 +14,21 @@ const server = http.createServer((req, res) => {
 
     // Read the HTML file
     const filePath = path.join(__dirname, '../app/src/settings/settings.html');
-    fs.readFile(filePath, 'utf8', (err, data) => {
-        if (err) {
-            res.writeHead(500);
-            return res.end('Error loading the HTML file.');
-        }
 
         // Use the gid from queryParams and call the database function
         getSettingsByGid(queryParams.gId).then(settings => {
-            // If settings are found, inject them into the response
-            res.write(`<!DOCTYPE html>
-            <html>
-            <head>
-                <title>Settings</title>
-            </head>
-            <body>
-                <script>
-                document.addEventListener("DOMContentLoaded", function() {
-                    document.getElementById('gid').innerHTML = '${queryParams.gId}';
-                    console.log(${JSON.stringify(settings)}); // Use JSON.stringify to safely include the settings
-                });
-                </script>
-                <div id="gid"></div>
-            </body>
-            </html>`);
+        const data = fs.readFileSync(filePath, 'utf8');
+        res.write(`<!DOCTYPE html>
+    <html lang='en'>
+    <head>
+    <script>
+        document.addEventListener("DOMContentLoaded", function() {
+          console.log(${JSON.stringify(settings)});
+          document.getElementById('gid').innerHTML = ${queryParams.gId};
+          document.getElementById('wlcMsg').innerHTML = ${settings.welMsg};
+        });
+      </script>`);
+            res.write(data);
             res.end();
         }).catch(error => {
             console.error('Database error:', error);
