@@ -9,7 +9,7 @@ const server = http.createServer((req, res) => {
   (async() => {
   const parsedUrl = url.parse(req.url, true);
   const queryParams = parsedUrl.query;
-    console.log(getSettings(queryParams.gId));
+    console.log(getSettings(00000000000));
     res.writeHead(200, { 'Content-Type': 'text/html' });
     const filePath = path.join(__dirname, '../app/src/settings/settings.html');
     const data = fs.readFileSync(filePath, 'utf8');
