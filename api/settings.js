@@ -25,7 +25,7 @@ const server = http.createServer((req, res) => {
         document.addEventListener("DOMContentLoaded", function() {
           console.log(${JSON.stringify(settings)});
           document.getElementById('gid').innerHTML = ${queryParams.gId};
-          document.getElementById('wlcMsg').innerHTML = ${settings.welMsg};
+          document.getElementById('wlcMsg').innerHTML = '${settings.welMsg}';
         });
       </script>`);
             res.write(data);
