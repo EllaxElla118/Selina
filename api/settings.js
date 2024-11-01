@@ -47,7 +47,6 @@ const server = http.createServer((req, res) => {
             res.end();
         });
     });
-});
 
 // Start the server
 const PORT = 3034; // You can use any available port
