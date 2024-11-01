@@ -26,6 +26,7 @@ const server = http.createServer((req, res) => {
           console.log(${JSON.stringify(settings)});
           document.getElementById('gid').innerHTML = ${queryParams.gId};
           document.getElementById('wlcMsg').innerHTML = '${settings.welMsg}';
+          document.getElementById('exitMsg').innerHTML = '${settings.leaveMsg}';
         });
       </script>`);
             res.write(data);
