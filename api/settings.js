@@ -17,8 +17,7 @@ const server = http.createServer((req, res) => {
       document.getElementById('gid').innerHTML = ${queryParams.gId}
       });
       </script>`);
-    res.end(data);     
-    run().catch(console.dir);
+    res.end(data);   
 });
 
 // *************************** DB SECTION **************************** //
@@ -35,7 +34,6 @@ const client = new MongoClient(uri, {
   }
 });
 
-async function run() {
   try {
     // Connect the client to the server
     await client.connect();
@@ -57,8 +55,8 @@ async function run() {
   } finally {
     // Ensure that the client will close when you finish/error
     await client.close();
-  }
-};
+  };
+
 // Start the server
 const PORT = 3034; // You can use any available port
 server.listen(PORT, () => {
