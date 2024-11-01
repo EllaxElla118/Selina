@@ -5,6 +5,7 @@ const path = require('path');
 
 // Create the HTTP server
 const server = http.createServer((req, res) => {
+  (async() => {
   const parsedUrl = url.parse(req.url, true);
   const queryParams = parsedUrl.query;
     res.writeHead(200, { 'Content-Type': 'text/html' });
@@ -17,8 +18,7 @@ const server = http.createServer((req, res) => {
       document.getElementById('gid').innerHTML = ${queryParams.gId}
       });
       </script>`);
-    res.end(data);   
-});
+    res.end(data); 
 
 // *************************** DB SECTION **************************** //
 
@@ -33,7 +33,6 @@ const client = new MongoClient(uri, {
     deprecationErrors: true,
   }
 });
-
   try {
     // Connect the client to the server
     await client.connect();
@@ -55,8 +54,9 @@ const client = new MongoClient(uri, {
   } finally {
     // Ensure that the client will close when you finish/error
     await client.close();
-  };
-
+  }
+  })();
+});
 // Start the server
 const PORT = 3034; // You can use any available port
 server.listen(PORT, () => {
