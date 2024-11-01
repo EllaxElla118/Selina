@@ -10,8 +10,14 @@ const server = http.createServer((req, res) => {
     res.writeHead(200, { 'Content-Type': 'text/html' });
     const filePath = path.join(__dirname, '../app/src/settings/settings.html');
     const data = fs.readFileSync(filePath, 'utf8');
-    console.log(data);
-    res.end(data);
+    res.write(`<!DOCTYPE html>
+    <html>
+    <script>
+    document.addEventListener("DOMContentLoaded", function() {
+      document.getElementById('gid').innerHTML = ${queryParams.gId}
+      });
+      </script>`);
+    res.end(data);   
 });
 
 // Start the server
