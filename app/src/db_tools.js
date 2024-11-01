@@ -1,7 +1,7 @@
 const { MongoClient } = require("mongodb");
 
 // Replace with your MongoDB connection string
-const uri = "mongodb+srv://Emma:6RynBIW4mbqEhEud@cluster1.mongodb.net/group?retryWrites=true&w=majority";
+const uri = "mongodb+srv://Emma:6RynBIW4mbqEhEud@cluster0.gp8zi.mongodb.net/?retryWrites=true&w=majority&appName=Cluster0";
 
 async function getSettingsByGid(gid) {
     const client = new MongoClient(uri, { useNewUrlParser: true, useUnifiedTopology: true });
