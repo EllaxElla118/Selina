@@ -18,7 +18,6 @@ const server = http.createServer((req, res) => {
       });
       </script>`);
     res.end(data);   
-run().catch(console.dir);
 });
 
 const { MongoClient, ServerApiVersion } = require('mongodb');
