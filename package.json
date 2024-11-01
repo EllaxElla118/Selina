@@ -4,7 +4,7 @@
   "description": "A Vercel app with MongoDB integration",
   "main": "index.html",
   "dependencies": {
-    "mongodb": "^7.0.15",
+    "mongodb": "^7.0.15"
   },
   "author": "Ella",
   "license": "MIT"
