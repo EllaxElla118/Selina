@@ -1,0 +1,11 @@
+{
+  "name": "Selina",
+  "version": "1.0.0",
+  "description": "A Vercel app with MongoDB integration",
+  "main": "index.html",
+  "dependencies": {
+    "mongodb": "^7.0.15" // Replace with the latest version if needed
+  },
+  "author": "Ella",
+  "license": "MIT"
+}
