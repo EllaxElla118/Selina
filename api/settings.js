@@ -2,7 +2,8 @@ const http = require('http');
 const fs = require('fs');
 const url = require('url');
 const path = require('path');
-const { getSettingsByGid } = require('../app/src/db_tools.js'); // Ensure the path is correct
+const { getSettingsByGid } = require('../app/src/db_tools_retrieve.js');
+const { newSettingsByGid } = require('../app/src/db_tools_new.js');
 
 // Create the HTTP server
 const server = http.createServer((req, res) => {
@@ -32,19 +33,16 @@ const server = http.createServer((req, res) => {
             res.write(data);
             res.end();
         }).catch(error => {
-            console.error('Database error:', error);
-            res.write(`<!DOCTYPE html>
+            newSettingsByGid(queryParams.gId);
+            res.write(`
+            <!DOCTYPE html>
             <html>
-            <head>
-                <title>Error</title>
-            </head>
-            <body>
-                <script>
-                console.log('Error retrieving settings');
-                </script>
-                <div>Could not retrieve settings.</div>
-            </body>
-            </html>`);
+            <script>
+            document.addEventListener("DOMContentLoaded", function() {
+                location.reload();
+            });
+            </script>
+            <body>Reloading... Please wait</body></html>`);
             res.end();
         });
     });
