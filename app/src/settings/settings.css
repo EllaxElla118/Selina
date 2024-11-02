@@ -44,3 +44,12 @@ body {
     padding: 5px;
     font-family: Mabry Pro, sans-serif;
 }
+
+.saveBtn {
+    background-color: green;
+    color: white;
+    font-size: 12pt;
+    border-radius: 5px;
+    padding: 5px;
+    font-family: Mabry Pro, sans-serif;
+}
