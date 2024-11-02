@@ -23,11 +23,10 @@ const server = http.createServer((req, res) => {
     <html lang='en'>
     <head>
     <script>
-        document.addEventListener("DOMContentLoaded", function() {
-          console.log(${JSON.stringify(settings)});
-          document.getElementById('gid').innerHTML = ${queryParams.gId};
-          document.getElementById('wlcMsg').innerHTML = '${settings.welMsg}';
-          document.getElementById('exitMsg').innerHTML = '${settings.leaveMsg}';
+        const gid= ${queryParams.gId};
+        const wlcMsg = '${settings.welMsg}';
+        const lvMsg =  '${settings.leaveMsg}';
+        const antiLink = ${settings.antilink};
         });
       </script>`);
             res.write(data);
