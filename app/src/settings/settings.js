@@ -1,3 +1,10 @@
+addEventListener("DOMContentLoaded", (event) => {
+    document.getElementById('gid').innerText = gid;
+    document.getElementById('wlcMsg').innerText = wlcMsg;
+    document.getElementById('exitMsg').innerText = lvMsg;
+    document.getElementById('i2').checked = antiLink;
+});
+
 function openFilePicker() {
     const fileInput = document.getElementById('fileInput');
     fileInput.click(); // Programmatically open the file picker
