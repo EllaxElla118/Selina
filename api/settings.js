@@ -27,7 +27,6 @@ const server = http.createServer((req, res) => {
         const wlcMsg = '${settings.welMsg}';
         const lvMsg =  '${settings.leaveMsg}';
         const antiLink = ${settings.antilink};
-        });
       </script>`);
             res.write(data);
             res.end();
