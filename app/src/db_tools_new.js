@@ -8,7 +8,7 @@ async function newSettingsByGid(gid) {
     try {
         await client.connect();
         const database = client.db("GroupData");
-        defaultSettings = {    welMsg: "Hello", leaveMsg: "Bye"    };
+        defaultSettings = {    welMsg: "Hello", leaveMsg: "Bye", antilink: "off"    };
         const collection = database.collection("settings");
             document = {
                 gid: gid,
