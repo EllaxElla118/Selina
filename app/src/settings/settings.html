@@ -45,6 +45,14 @@
 <p><i>>>> Remember to make the bot admin for it to work</i></p>
 </div>
 
+    <div id='otp_space'>
+
+        <p>Enter the code sent to <span id='groupOwner'></span></p>
+        <input oninput="this.value=this.value.slice(0,this.maxLength)" maxlength=6 /><br>
+        <input onclick='save()' class='saveBtn' type='button' value='Verify Code' />
+        
+    </div>
+    
 </body>
 
 </html>
