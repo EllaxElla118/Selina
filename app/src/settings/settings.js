@@ -27,3 +27,7 @@ function addTag(tag, id) {
         document.getElementById(id).value += tag;
     }
 }
+
+function prepsave() {
+    document.getElementById('otp').style.display = block;
+}
