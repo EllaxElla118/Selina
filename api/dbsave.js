@@ -16,7 +16,7 @@ const server = http.createServer((req, res) => {
     res.write(`Wrong OTP Code. Restart the process by typing /settings in the group chat`);
   }  
     res.end();
-};
+});
                                  
 // Start the server
 const PORT = 3027; // You can use any available port
