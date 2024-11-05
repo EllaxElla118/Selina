@@ -1,5 +1,6 @@
 const http = require('http');
 var crypt = require('crypto');
+const { decrypt } = require('./app/src/crypt');
 
 const server = http.createServer((req, res) => {
     const parsedUrl = url.parse(req.url, true);
@@ -7,10 +8,7 @@ const server = http.createServer((req, res) => {
 
     // Set up the response header
     res.writeHead(200, { 'Content-Type': 'text/html' });
-
-  var mykey = crypted.createDecipher('aes-128-cbc', process.env.cipher);
-  var mystr = mykey.update(queryParams.hashed, 'hex', 'utf8')
-  mystr += mykey.final('utf8');
+    const mystr = decrypt(parsedUrl.hashed);
   if(mystr === queryParams.otp_in) {
     await upd();
     res.write(`Saved Successfully`);
