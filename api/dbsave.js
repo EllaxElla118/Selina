@@ -1,6 +1,7 @@
 const http = require('http');
 var crypt = require('crypto');
 const { decrypt } = require('../app/src/crypt.js');
+const url = require('url');
 
 const server = http.createServer((req, res) => {
     const parsedUrl = url.parse(req.url, true);
