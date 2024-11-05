@@ -9,8 +9,17 @@ const server = http.createServer((req, res) => {
     // Set up the response header
     res.writeHead(200, { 'Content-Type': 'text/html' });
     const mystr = decrypt(parsedUrl.hashed);
+const document = {
+    gid: queryParams.gid,
+    settings: {
+        welMsg: queryParams.wlcMsg,
+        leaveMsg: queryParams.lvMsg,
+        antilink: JSON.parse(queryParams.antiLink)
+    }
+};
+
   if(mystr === queryParams.otp_in) {
-    upd();
+    upd(document);
     res.write(`Saved Successfully`);
   } else {
     res.write(`Wrong OTP Code. Restart the process by typing /settings in the group chat`);
@@ -54,13 +63,3 @@ async function upd(document) {
         await client.close();
     }
 }
-
-// Example document
-const document = {
-    gid: queryParams.gid,
-    settings: {
-        welMsg: queryParams.wlcMsg,
-        leaveMsg: queryParams.lvMsg,
-        antilink: JSON.parse(queryParams.antiLink)
-    }
-};
