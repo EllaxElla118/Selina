@@ -1,5 +1,5 @@
 const http = require('http');
-var crypted = require('crypto');
+var crypt = require('crypto');
 
 const server = http.createServer((req, res) => {
     const parsedUrl = url.parse(req.url, true);
