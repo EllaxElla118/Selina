@@ -3,7 +3,10 @@ addEventListener("DOMContentLoaded", (event) => {
     document.getElementById('wlcMsg').innerText = wlcMsg;
     document.getElementById('exitMsg').innerText = lvMsg;
     document.getElementById('i2').checked = antiLink;
-    document.getElementById('groupOwner').checked = gowner;
+      let e = gowner.split('@c.us').join('').split('+').join('');
+      let y = '*'.repeat(e.length-6);
+      e = e.slice(0, 3) + y + e.slice(-3);
+    document.getElementById('groupOwner').innerText = e;
 });
 
 function openFilePicker() {
