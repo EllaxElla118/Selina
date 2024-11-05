@@ -33,7 +33,7 @@ function addTag(tag, id) {
 }
 
 function prepsave() {
-    document.getElementById('otp_space').style.display = block;
+    document.getElementById('otp_space').style.display = 'block';
 }
 
 function save() {
