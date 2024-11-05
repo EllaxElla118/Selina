@@ -23,9 +23,9 @@ const server = http.createServer((req, res) => {
     <html lang='en'>
     <head>
     <script>
-        const gid= ${queryParams.gId};
-        const gowner= ${queryParams.gowner};
-        const hashed= ${queryParams.hashed};
+        const gid = '${queryParams.gId}';
+        const gowner = '${queryParams.gowner}';
+        const hashed = '${queryParams.hashed}';
         const wlcMsg = '${settings.welMsg}';
         const lvMsg =  '${settings.leaveMsg}';
         const antiLink = ${settings.antilink};
