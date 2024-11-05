@@ -10,7 +10,7 @@ const server = http.createServer((req, res) => {
     res.writeHead(200, { 'Content-Type': 'text/html' });
     const mystr = decrypt(parsedUrl.hashed);
   if(mystr === queryParams.otp_in) {
-    await upd();
+    upd();
     res.write(`Saved Successfully`);
   } else {
     res.write(`Wrong OTP Code. Restart the process by typing /settings in the group chat`);
